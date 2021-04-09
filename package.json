@@ -12,7 +12,8 @@
         "@sap/xsenv": "^3.1.0",
         "@sap/xssec": "^3.1.2",
         "express": "^4",
-        "passport": "^0.4.1"
+        "passport": "^0.4.1",
+        "sqlite3": "^5.0.2"
     },
     "scripts": {
         "start": "cds run",
@@ -22,6 +23,20 @@
         "hana": {
             "deploy-format": "hdbtable"
         },
+        "auth": {
+            "passport": {
+                "strategy": "mock",
+                "users": {
+                    "106010": {
+                        "roles": [
+                            "authenticated-user",
+                            "admin"
+                        ],
+                        "ID": "106010"
+                    }
+                }
+            }
+        },
         "requires": {
             "uaa": {
                 "kind": "xsuaa"
@@ -30,13 +45,16 @@
                 "kind": "enterprise-messaging-shared"
             },
             "db": {
-                "kind": "hana"
+                "kind": "sql",
+                "credentials": {
+                    "database": ":memory:"
+                }
             },
             "ECSkillsManagement": {
                 "kind": "odata",
                 "model": "srv/external/ECSkillsManagement",
                 "credentials": {
-                    "destination": "sfextension-service",
+                    "destination": "sfextension-dest",
                     "path": "/odata/v2",
                     "requestTimeout": 18000000
                 }
@@ -45,7 +63,7 @@
                 "kind": "odata",
                 "model": "srv/external/FoundationPlatformPLT",
                 "credentials": {
-                    "destination": "sfextension-service",
+                    "destination": "sfextension-dest",
                     "path": "/odata/v2",
                     "requestTimeout": 18000000
                 }
@@ -54,7 +72,7 @@
                 "kind": "odata",
                 "model": "srv/external/PLTUserManagement",
                 "credentials": {
-                    "destination": "sfextension-service",
+                    "destination": "sfextension-dest",
                     "path": "/odata/v2",
                     "requestTimeout": 18000000
                 }

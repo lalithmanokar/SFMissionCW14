@@ -1,0 +1,175 @@
+{
+	"VCAP_SERVICES": {
+		"enterprise-messaging": [
+			{
+				"label": "enterprise-messaging",
+				"provider": null,
+				"plan": "default",
+				"name": "cloud-sf-extension-cap-sample-epm",
+				"tags": [
+					"enterprise-messaging"
+				],
+				"instance_guid": "e1e68a52-eca0-4e7e-a2de-9d2b51c6b5b1",
+				"instance_name": "cloud-sf-extension-cap-sample-epm",
+				"binding_guid": "ab432b5b-7b2d-480f-8bdf-f9d2b02b02fc",
+				"binding_name": null,
+				"credentials": {
+					"namespace": "referenceappscf/emsf/1909",
+					"xsappname": "default-e1e68a52-eca0-4e7e-a2de-9d2b51c6b5b1-clone!b83404|xbem-service-broker-!b2436",
+					"management": [
+						{
+							"oa2": {
+								"clientid": "sb-default-e1e68a52-eca0-4e7e-a2de-9d2b51c6b5b1-clone!b83404|xbem-service-broker-!b2436",
+								"clientsecret": "ab432b5b-7b2d-480f-8bdf-f9d2b02b02fc$CxBLLd7B7F_NIsvaxbFP9Dhg8WBTNH51-TPLG0-DElI=",
+								"tokenendpoint": "https://sfmissionakankshacw14.authentication.eu10.hana.ondemand.com/oauth/token",
+								"granttype": "client_credentials"
+							},
+							"uri": "https://enterprise-messaging-hub-backend.cfapps.eu10.hana.ondemand.com"
+						}
+					],
+					"serviceinstanceid": "e1e68a52-eca0-4e7e-a2de-9d2b51c6b5b1",
+					"messaging": [
+						{
+							"oa2": {
+								"clientid": "sb-default-e1e68a52-eca0-4e7e-a2de-9d2b51c6b5b1-clone!b83404|xbem-service-broker-!b2436",
+								"clientsecret": "ab432b5b-7b2d-480f-8bdf-f9d2b02b02fc$CxBLLd7B7F_NIsvaxbFP9Dhg8WBTNH51-TPLG0-DElI=",
+								"tokenendpoint": "https://sfmissionakankshacw14.authentication.eu10.hana.ondemand.com/oauth/token",
+								"granttype": "client_credentials"
+							},
+							"protocol": [
+								"amqp10ws"
+							],
+							"broker": {
+								"type": "sapmgw"
+							},
+							"uri": "wss://enterprise-messaging-messaging-gateway.cfapps.eu10.hana.ondemand.com/protocols/amqp10ws"
+						},
+						{
+							"oa2": {
+								"clientid": "sb-default-e1e68a52-eca0-4e7e-a2de-9d2b51c6b5b1-clone!b83404|xbem-service-broker-!b2436",
+								"clientsecret": "ab432b5b-7b2d-480f-8bdf-f9d2b02b02fc$CxBLLd7B7F_NIsvaxbFP9Dhg8WBTNH51-TPLG0-DElI=",
+								"tokenendpoint": "https://sfmissionakankshacw14.authentication.eu10.hana.ondemand.com/oauth/token",
+								"granttype": "client_credentials"
+							},
+							"protocol": [
+								"mqtt311ws"
+							],
+							"broker": {
+								"type": "sapmgw"
+							},
+							"uri": "wss://enterprise-messaging-messaging-gateway.cfapps.eu10.hana.ondemand.com/protocols/mqtt311ws"
+						},
+						{
+							"oa2": {
+								"clientid": "sb-default-e1e68a52-eca0-4e7e-a2de-9d2b51c6b5b1-clone!b83404|xbem-service-broker-!b2436",
+								"clientsecret": "ab432b5b-7b2d-480f-8bdf-f9d2b02b02fc$CxBLLd7B7F_NIsvaxbFP9Dhg8WBTNH51-TPLG0-DElI=",
+								"tokenendpoint": "https://sfmissionakankshacw14.authentication.eu10.hana.ondemand.com/oauth/token",
+								"granttype": "client_credentials"
+							},
+							"protocol": [
+								"httprest"
+							],
+							"broker": {
+								"type": "saprestmgw"
+							},
+							"uri": "https://enterprise-messaging-pubsub.cfapps.eu10.hana.ondemand.com"
+						}
+					]
+				},
+				"syslog_drain_url": null,
+				"volume_mounts": []
+			}
+		],
+		"xsuaa": [
+			{
+				"label": "xsuaa",
+				"provider": null,
+				"plan": "application",
+				"name": "cloud-sf-extension-cap-sample-uaa",
+				"tags": [
+					"xsuaa"
+				],
+				"instance_guid": "f8ee5e4e-79ba-400f-a176-667405cdb276",
+				"instance_name": "cloud-sf-extension-cap-sample-uaa",
+				"binding_guid": "52c88dba-4ec8-4271-94af-6df6c0450357",
+				"binding_name": null,
+				"credentials": {
+					"tenantmode": "dedicated",
+					"sburl": "https://internal-xsuaa.authentication.eu10.hana.ondemand.com",
+					"subaccountid": "17456383-9ac3-4ed0-b07d-d164b9c47b7e",
+					"clientid": "sb-cloud-sf-extension-cap-sample-uaa-SFMissionAkankshaCw14-dev!t83404",
+					"xsappname": "cloud-sf-extension-cap-sample-uaa-SFMissionAkankshaCw14-dev!t83404",
+					"clientsecret": "z3RoD5J/JkSXamwBD9de80qg8bM=",
+					"url": "https://sfmissionakankshacw14.authentication.eu10.hana.ondemand.com",
+					"uaadomain": "authentication.eu10.hana.ondemand.com",
+					"verificationkey": "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5CiVNvRiCWgO2XsSrOlDoOGfX5tSLu/AmX4KcgUVz7sfQjzkiynMkPNmCf2yW6aXspFramn9tP2OoCs3+yems0JXqLKj9j7ylLn71rtYnKnM7UGbs/VLCd5YiMwKQ5Mx24q6emAFCAhJLV9b8dyF5nQGfPKro5sBr+qtzEwyvzXefbfwXVbe6t3x8R9TEroxKVtA5lLd6R55bJJ1ZmRJ4MM1anv+6Qplw1wp2RQ6e0t1yNOK1gTbD4dG0FCK5ox+h82xYv6fQPWf6rLA7YGHwrRairI09qrIALXvWejELQ5tKKtpFGZWaqHSpt6r6Lu3bbjMlT0yfXKQuAsi3K0a0wIDAQAB-----END PUBLIC KEY-----",
+					"apiurl": "https://api.authentication.eu10.hana.ondemand.com",
+					"identityzone": "sfmissionakankshacw14",
+					"identityzoneid": "17456383-9ac3-4ed0-b07d-d164b9c47b7e",
+					"tenantid": "17456383-9ac3-4ed0-b07d-d164b9c47b7e",
+					"zoneid": "17456383-9ac3-4ed0-b07d-d164b9c47b7e"
+				},
+				"syslog_drain_url": null,
+				"volume_mounts": []
+			}
+		],
+		"destination": [
+			{
+				"label": "destination",
+				"provider": null,
+				"plan": "lite",
+				"name": "cloud-sf-extension-cap-sample-destination",
+				"tags": [
+					"destination",
+					"conn",
+					"connsvc"
+				],
+				"instance_guid": "d67fcbe1-975d-40b4-bad1-93a5943a612d",
+				"instance_name": "cloud-sf-extension-cap-sample-destination",
+				"binding_guid": "64d849a0-354f-43d9-9fc6-2327fce75924",
+				"binding_name": null,
+				"credentials": {
+					"uaadomain": "authentication.eu10.hana.ondemand.com",
+					"tenantmode": "dedicated",
+					"clientid": "sb-cloned67fcbe1975d40b4bad193a5943a612d!b83404|destination-xsappname!b404",
+					"instanceid": "d67fcbe1-975d-40b4-bad1-93a5943a612d",
+					"verificationkey": "-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5CiVNvRiCWgO2XsSrOlDoOGfX5tSLu/AmX4KcgUVz7sfQjzkiynMkPNmCf2yW6aXspFramn9tP2OoCs3+yems0JXqLKj9j7ylLn71rtYnKnM7UGbs/VLCd5YiMwKQ5Mx24q6emAFCAhJLV9b8dyF5nQGfPKro5sBr+qtzEwyvzXefbfwXVbe6t3x8R9TEroxKVtA5lLd6R55bJJ1ZmRJ4MM1anv+6Qplw1wp2RQ6e0t1yNOK1gTbD4dG0FCK5ox+h82xYv6fQPWf6rLA7YGHwrRairI09qrIALXvWejELQ5tKKtpFGZWaqHSpt6r6Lu3bbjMlT0yfXKQuAsi3K0a0wIDAQAB-----END PUBLIC KEY-----",
+					"xsappname": "cloned67fcbe1975d40b4bad193a5943a612d!b83404|destination-xsappname!b404",
+					"identityzone": "sfmissionakankshacw14",
+					"clientsecret": "64d849a0-354f-43d9-9fc6-2327fce75924$bTxl6kQfOspyCG55Zo9GhA3T3Yan2nL5geW2XA3HrKM=",
+					"tenantid": "17456383-9ac3-4ed0-b07d-d164b9c47b7e",
+					"uri": "https://destination-configuration.cfapps.eu10.hana.ondemand.com",
+					"url": "https://sfmissionakankshacw14.authentication.eu10.hana.ondemand.com"
+				},
+				"syslog_drain_url": null,
+				"volume_mounts": []
+			}
+		]
+	},
+	"VCAP_APPLICATION": {
+		"cf_api": "https://api.cf.eu10.hana.ondemand.com",
+		"limits": {
+			"fds": 32768,
+			"mem": 512,
+			"disk": 512
+		},
+		"application_name": "cloud-sf-extension-cap-sample-srv",
+		"application_uris": [
+			"sfmissionakankshacw14-dev-cloud-sf-extension-cap-sample-srv.cfapps.eu10.hana.ondemand.com"
+		],
+		"name": "cloud-sf-extension-cap-sample-srv",
+		"space_name": "dev",
+		"space_id": "72d70d35-e490-4a99-b96a-70683c3ab460",
+		"organization_id": "68bdf175-cf0e-4df1-842d-cb25235e0481",
+		"organization_name": "SFMissionAkankshaCw14",
+		"uris": [
+			"sfmissionakankshacw14-dev-cloud-sf-extension-cap-sample-srv.cfapps.eu10.hana.ondemand.com"
+		],
+		"users": null,
+		"process_id": "8ff27bc9-6cc4-4b59-8f21-c847cb0f35ca",
+		"process_type": "web",
+		"application_id": "8ff27bc9-6cc4-4b59-8f21-c847cb0f35ca",
+		"version": "6d8f555f-e499-46fd-b9d2-8a6fa4815f3f",
+		"application_version": "6d8f555f-e499-46fd-b9d2-8a6fa4815f3f"
+	}
+}
