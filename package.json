@@ -6,7 +6,7 @@
     "license": "Apache License 2.0",
     "dependencies": {
         "@sap/audit-logging": "^5.0.0",
-        "@sap/cds": "^4",
+        "@sap/cds": "^5",
         "@sap/hana-client": "^2.4.196",
         "@sap/xb-msg-amqp-v100": "^0.9.19",
         "@sap/xsenv": "^3.1.0",
@@ -19,49 +19,63 @@
         "build": "cds build/all --clean"
     },
     "cds": {
-        "hana": {
-            "deploy-format": "hdbtable"
+        "auth": {
+          "passport": {
+            "strategy": "mock",
+            "users": {
+              "106010": {
+                "roles": [
+                  "authenticated-user",
+                  "admin"
+                ],
+                "ID": "106010"
+              }
+            }
+          }
         },
         "requires": {
-            "uaa": {
-                "kind": "xsuaa"
-            },
-            "messaging": {
-                "kind": "enterprise-messaging-shared"
-            },
-            "db": {
-                "kind": "sql"
-            },
-            "ECSkillsManagement": {
-                "kind": "odata",
-                "model": "srv/external/ECSkillsManagement",
-                "credentials": {
-                    "destination": "sfextension-service",
-                    "path": "/odata/v2",
-                    "requestTimeout": 18000000
-                }
-            },
-            "FoundationPlatformPLT": {
-                "kind": "odata",
-                "model": "srv/external/FoundationPlatformPLT",
-                "credentials": {
-                    "destination": "sfextension-service",
-                    "path": "/odata/v2",
-                    "requestTimeout": 18000000
-                }
-            },
-            "PLTUserManagement": {
-                "kind": "odata",
-                "model": "srv/external/PLTUserManagement",
-                "credentials": {
-                    "destination": "sfextension-service",
-                    "path": "/odata/v2",
-                    "requestTimeout": 18000000
-                }
+          "uaa": {
+            "kind": "xsuaa"
+          },
+          "messaging": {
+            "kind": "enterprise-messaging-shared"
+          },
+          "FoundationPlatformPLT": {
+            "kind": "odata",
+            "model": "srv/external/FoundationPlatformPLT",
+            "credentials": {
+              "destination": "sfextension-dest",
+              "path": "/odata/v2",
+              "requestTimeout": 18000000
             }
+          },
+          "PLTUserManagement": {
+            "kind": "odata",
+            "model": "srv/external/PLTUserManagement",
+            "credentials": {
+              "destination": "sfextension-dest",
+              "path": "/odata/v2",
+              "requestTimeout": 18000000
+            }
+          },
+          "ECSkillsManagement": {
+            "kind": "odata",
+            "model": "srv/external/ECSkillsManagement",
+            "credentials": {
+              "destination": "sfextension-dest",
+              "path": "/odata/v2",
+              "requestTimeout": 18000000
+            }
+          },
+          "db": {
+            "kind": "sqlite",
+            "credentials": {
+              "database": ":memory:"
+            }
+          }
         },
         "odata": {
-            "version": "v4"
+          "version": "v4"
         }
+      }
     }
-}
