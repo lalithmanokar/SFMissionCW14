@@ -42,7 +42,7 @@
                 "kind": "xsuaa"
             },
             "messaging": {
-                "kind": "enterprise-messaging-shared"
+                "kind": "local-messaging"
             },
             "db": {
                 "kind": "sql",
