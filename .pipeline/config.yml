@@ -20,8 +20,6 @@ steps:
     buildTool: 'mta'
     npmExecute:
     dockerImage: 's4sdk/docker-node-browsers:v15'
-  npmExecuteLint:
-    failOnError: true
   cloudFoundryDeploy:
     cloudFoundry:
       credentialsId: 'lalithcr'
@@ -29,19 +27,9 @@ steps:
       org: 'SFMissionAkankshaCw14'
       space: 'dev'
     mtaDeployParameters: '-f --version-rule ALL'
-  sapNexusStage:
-    stagingProfile: 'integration'
-    repositoryFormat: 'npm'
-  sapNexusUploadArtifacts:
-    packaging: 'mtar'
-    buildDescriptorFile: 'mta.yaml'
-    uploadFile: 'cloud-sf-extension-cap-sample_1.0.0.mtar'
-    artifactType: 'mta'
   mtaBuild:
     mtaBuildTool: "cloudMbt"
 ### Stage-specific configuration
 stages:
   Release:
     cloudFoundryDeploy: true
-  Build:
-    npmExecuteLint: true

@@ -1,0 +1,31 @@
+---
+applications:
+- name: cloud-sf-extension-cap-sample-srv
+  env:
+    DEPLOY_ATTRIBUTES: |-
+      {
+        "app-content-digest" : "574C3ED2B8BEE951C9A7BE93CE3A11FB"
+      }
+  stack: cflinuxfs3
+  services:
+  - cloud-sf-extension-cap-sample-db-hdi-container
+  - cloud-sf-extension-cap-sample-destination
+  - cloud-sf-extension-cap-sample-epm
+  - cloud-sf-extension-cap-sample-uaa
+  routes:
+  - route: sfmissionakankshacw14-dev-cloud-sf-extension-cap-sample-srv.cfapps.eu10.hana.ondemand.com
+  metadata:
+    labels:
+      mta_id: ee11216eb1559237bad7119f477f470f
+    annotations:
+      mta_id: cloud-sf-extension-cap-sample
+      mta_version: 1.0.0
+      mta_module: '{"name":"cloud-sf-extension-cap-sample-srv"}'
+      mta_module_provided_dependencies: "[]"
+      mta_bound_services: '["cloud-sf-extension-cap-sample-db-hdi-container","cloud-sf-extension-cap-sample-uaa","cloud-sf-extension-cap-sample-destination","cloud-sf-extension-cap-sample-epm"]'
+  processes:
+  - type: web
+    instances: 1
+    memory: 512M
+    disk_quota: 512M
+    health-check-type: port
