@@ -1,0 +1,47 @@
+  
+###
+# This file configures the project "Piper" pipeline of your project.
+# For a reference of the configuration concept and available options, please have a look into its documentation.
+#
+# The documentation for the most recent pipeline version can always be found at:
+#    https://sap.github.io/jenkins-library/
+#
+# This is a YAML-file. YAML is an indentation-sensitive file format. Please make sure to properly indent changes to it.
+###
+
+### General project setup
+general:
+  unsafeMode: false
+  projectName: 'cloud-cap-s4ems-bp'
+  pipeline: 'sap-cloud-sdk'    # this line is mandatory
+### Step-specific configuration
+steps:
+  artifactPrepareVersion:
+    buildTool: 'mta'
+    npmExecute:
+    dockerImage: 's4sdk/docker-node-browsers:v15'
+  npmExecuteLint:
+    failOnError: true
+  cloudFoundryDeploy:
+    cloudFoundry:
+      credentialsId: 'lalithcr'
+      apiEndpoint: 'https://api.cf.eu10.hana.ondemand.com'    # for example, https://api.cf.eu10.hana.ondemand.com
+      org: 'SFMissionAkankshaCw14'
+      space: 'dev'
+    mtaDeployParameters: '-f --version-rule ALL'
+  sapNexusStage:
+    stagingProfile: 'integration'
+    repositoryFormat: 'npm'
+  sapNexusUploadArtifacts:
+    packaging: 'mtar'
+    buildDescriptorFile: 'mta.yaml'
+    uploadFile: 'cloud-sf-extension-cap-sample_1.0.0.mtar'
+    artifactType: 'mta'
+  mtaBuild:
+    mtaBuildTool: "cloudMbt"
+### Stage-specific configuration
+stages:
+  Release:
+    cloudFoundryDeploy: true
+  Build:
+    npmExecuteLint: true
